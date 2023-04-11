@@ -1,27 +1,17 @@
-import { useCallback, useState, useMemo } from "react";
+import { BrowserRouter, Link } from "react-router-dom";
 import "./App.css";
-import { ChildArea } from "./ChildArea";
+import { Router } from "./router/Router";
 
 function App() {
-  const [text, setText] = useState("");
-  const [open, setOpen] = useState("");
-  const onChangeText = (e) => setText(e.target.value);
-
-  const onClickOpen = () => setOpen(!open);
-
-  // 関数メモ化
-  const onClickClose = useCallback(() => setOpen(false), [setOpen]);
-
-  // 変数メモ化
-  const temp = useMemo(() => 1 + 3, []);
-
   return (
-    <div className="App">
-      <input value={text} onChange={onChangeText} />
-      <br />
-      <button onClick={onClickOpen}>表示</button>
-      <ChildArea open={open} onClickClose={onClickClose} />
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Link to="/">Home</Link>
+        <Link to="/page1">Page1</Link>
+        <Link to="/page2">Page2</Link>
+      </div>
+      <Router />
+    </BrowserRouter>
   );
 }
 

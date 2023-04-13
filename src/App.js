@@ -1,18 +1,20 @@
 import { BrowserRouter, Link } from "react-router-dom";
 import "./App.css";
+import { PrimaryButton } from "./components/atoms/button/PrimaryButton";
 import { Router } from "./router/Router";
 
+const user = {
+  name: "test",
+  image: "https://test",
+  email: "test",
+  phone: "00-11",
+  company: {
+    name: "test株",
+  },
+};
+
 function App() {
-  return (
-    <BrowserRouter>
-      <div className="App">
-        <Link to="/">Home</Link>
-        <Link to="/page1">Page1</Link>
-        <Link to="/page2">Page2</Link>
-      </div>
-      <Router />
-    </BrowserRouter>
-  );
+  return <PrimaryButton user={user}>テスト</PrimaryButton>;
 }
 
 export default App;

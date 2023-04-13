@@ -3,6 +3,7 @@ import "./App.css";
 import { PrimaryButton } from "./components/atoms/button/PrimaryButton";
 import { DefaultLayout } from "./components/templates/DefaultLayout";
 import { HeaderOnly } from "./components/templates/HeaderOnly";
+import { UserProvider } from "./providers/UserProvider";
 import { Router } from "./router/Router";
 
 const user = {
@@ -16,7 +17,11 @@ const user = {
 };
 
 function App() {
-  return <Router></Router>;
+  return (
+    <UserProvider>
+      <Router></Router>
+    </UserProvider>
+  );
 }
 
 export default App;

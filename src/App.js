@@ -1,4 +1,5 @@
 import { BrowserRouter, Link } from "react-router-dom";
+import { RecoilRoot } from "recoil";
 import "./App.css";
 import { PrimaryButton } from "./components/atoms/button/PrimaryButton";
 import { DefaultLayout } from "./components/templates/DefaultLayout";
@@ -18,9 +19,11 @@ const user = {
 
 function App() {
   return (
-    <UserProvider>
-      <Router></Router>
-    </UserProvider>
+    <RecoilRoot>
+      <UserProvider>
+        <Router></Router>
+      </UserProvider>
+    </RecoilRoot>
   );
 }
 
